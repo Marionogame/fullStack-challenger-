@@ -1,0 +1,83 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type CacheControlDTO {
+  cache: String!
+  expireAt: DateTime!
+}
+
+type ContentAttributesDTO {
+  color: String
+  composite: Boolean!
+  description: String
+  icon: String
+  lastUpdate: DateTime!
+  magnitude: String
+  title: String!
+  total: Float!
+  totalPercentage: Float!
+  type: String!
+  values: [ValueDTO!]!
+}
+
+type ContentItemDTO {
+  attributes: ContentAttributesDTO!
+  groupId: String!
+  id: String!
+  type: String!
+}
+
+type CreateReeOutputDTO {
+  _id: String!
+  createdAt: DateTime!
+  data: DataDTO!
+  included: [IncludedDTO!]
+  updatedAt: DateTime!
+}
+
+type DataAttributesDTO {
+  description: String
+  lastUpdate: DateTime!
+  title: String!
+}
+
+type DataDTO {
+  attributes: DataAttributesDTO!
+  id: String!
+  meta: DataMetaDTO!
+  type: String!
+}
+
+type DataMetaDTO {
+  cacheControl: CacheControlDTO!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type IncludedAttributesDTO {
+  content: [ContentItemDTO!]!
+  description: String
+  lastUpdate: DateTime!
+  magnitude: String
+  title: String!
+}
+
+type IncludedDTO {
+  attributes: IncludedAttributesDTO!
+  id: String!
+  type: String!
+}
+
+type Query {
+  getData: [CreateReeOutputDTO!]!
+}
+
+type ValueDTO {
+  datetime: DateTime!
+  percentage: Float!
+  value: Float!
+}

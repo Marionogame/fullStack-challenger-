@@ -1,0 +1,38 @@
+.container {
+  margin: 0 !important;
+  width: 100%;
+}
+.containerButtom {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}
+.buttom {
+  margin: 0.2rem !important;
+  padding: 0.65rem 0.2rem !important;
+  min-width: 4rem !important;
+}
+.contTableButtom {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.tableRow {
+  background-color: rgb(140, 219, 248);
+}
+.buttonIcon {
+  border: 0.5px solid white !important;
+
+  padding: 0.7rem 1rem 1rem 1rem !important;
+  margin-left: 1.2rem !important;
+}
+.contTime {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+.inputSearch {
+  margin-left: 2rem !important;
+}
