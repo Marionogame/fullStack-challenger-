@@ -12,53 +12,39 @@ En el frontend se ofrecen diversas opciones para visualizar los datos mediante t
 Backend
 Ejecución:
 
-Correr: pnpm nest start
+Correr API: pnpm nest start
 
-Test: pnpm run test:watch
+Correr Testing: pnpm jest --coverage
+Testing Covertura 100%:
+![image](https://github.com/user-attachments/assets/37478049-6ea4-4d57-8b2a-42ff32abe3c3)
+
+--------------------------
 
 Frontend
 Ejecución:
 
-Correr: pnpm run dev
+Correr Web: pnpm run dev
+
+Correr Testing: pnpm vitest run --coverage  
+Testing Covertura 100%:
+
+![image](https://github.com/user-attachments/assets/caca6fb6-2a61-4624-a826-1d3cda442220)
 
 Test: pnpm run test
 
---------------------------
-Ejemplo de petición a GraphQL
-Seleccionando únicamente los datos necesarios para ejecutar la aplicación en el frontend:
 
-{
-    getData {
-      data {
-        id
-        type
-        attributes {
-          description
-          lastUpdate
-        }
-      }
-      _id
-      included {
-        type
-        id
-        attributes {
-          title
-          content {
-            type
-            attributes {
-              color
-              total
-            }
-          }
-        }
-      }
-      createdAt
-      updatedAt
-    }
-  }  
 
  Imagenes 
  
-![image](https://github.com/user-attachments/assets/2e05066e-4d79-43a9-a85c-72695acbf89b)
+Pantalla General
+
+
+Pantalla Error:
+![image](https://github.com/user-attachments/assets/5c09c179-4b69-4b80-9727-19d687e8357b)
+
+Pantalla Cargando:
+![image](https://github.com/user-attachments/assets/6254dbbb-c0ff-43ab-a657-843fda7b33ef)
+
+
 ![animiertes-gif-von-online-umwandeln-de](https://github.com/user-attachments/assets/453962b2-3db6-4cd6-8eea-40a8fd183561)
 
