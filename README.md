@@ -42,6 +42,7 @@ Esto implicaría analizar patrones de actualización y configurar validaciones r
 Este enfoque, aunque complejo, puede ser útil en escenarios donde la precisión en tiempo real es crítica y la frecuencia de actualización del API es predecible.
 
 C - Usar el API REST de REE directamente como servicio garantiza que el proyecto siempre tenga datos actualizados sin necesidad de almacenamiento local, lo que simplifica la arquitectura y ahorra esfuerzo de mantenimiento. Sin embargo, es importante considerar que no tendríamos control sobre la libertad de acceso a los datos ni sobre la velocidad de respuesta, y además, si el API REST de REE no está diseñado para soportar un gran número de usuarios concurrentes, esto podría generar problemas de rendimiento o incluso caídas del servicio.
+
 --------------------------
 
 Frontend
