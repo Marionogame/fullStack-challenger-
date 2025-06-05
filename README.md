@@ -5,6 +5,7 @@ Obtención de balance REE (Red Eléctrica de España)
 Backend
 -------------------------
 Estructura Backend del projecto:
+
 (Esta deciciones fueron tomadas en mi juicio y para completar todos los requerimientos del documento que se me entrego)
 
 Cada cierto tiempo, el proyecto realiza una petición GET automática a la API REST de REE (Red Eléctrica de España) para mantenerse siempre actualizado, 
@@ -29,9 +30,8 @@ Testing Covertura 100%:
 
 
 -------------------------
-
-
 Opciones tambien Aceptables:
+
 (Cada opción dependería de las circunstancias específicas, considerando tanto la capacidad de la compañía como la disponibilidad y funcionalidad del API REST de REE.)
 
 A - La mejor opción para un funcionamiento óptimo sería implementar un disparador que notifique a nuestra API cuando haya un nuevo dato disponible.
