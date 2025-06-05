@@ -1,0 +1,11 @@
+.card {
+  width: 100% !important;
+}
+.cardSelect {
+  background-color: rgb(198, 233, 247) !important;
+  width: 100% !important;
+}
+.cardContainer {
+  height: 800px;
+  overflow: auto;
+}

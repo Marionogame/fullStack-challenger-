@@ -10,6 +10,7 @@ export default defineConfig({
   test: {
     coverage: {
       provider: "istanbul", // or 'v8'
+      exclude: ["src/App.tsx", "src/main.tsx", "dist", "src/Utils/formats.ts"],
     },
     environment: "jsdom",
   },

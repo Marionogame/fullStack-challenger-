@@ -1,12 +1,3 @@
-.container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 0 1rem;
-  overflow-y: auto;
-}
-
 .containerTableGroup {
   width: 90%;
   margin-top: 20px;
@@ -18,24 +9,46 @@
 
 .title {
   font-size: 2.5em;
-  color: #1b1c1d; /* Color oscuro */
+  color: #1b1c1d;
   font-family: "Arial", sans-serif;
   font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra ligera */
-  letter-spacing: 1px; /* Espaciado entre letras */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
   transition: all 0.3s ease-in-out;
+  line-height: 1.2;
+}
+.titleTime {
+  font-size: 1.5em;
+  color: #1b1c1d;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
+  margin-bottom: 5px;
+  width: 200px;
+}
+.titleOptions {
+  font-size: 1.5em;
+  color: #1b1c1d;
+  font-family: "Arial", sans-serif;
+  font-weight: bold;
 }
 
 .title:hover {
-  color: #ff6347; /* Color al pasar el ratón */
-  transform: scale(1.1); /* Efecto de aumentar el tamaño */
+  color: #ff6347;
+  transform: scale(1.1);
 }
 
-.containerChart {
-  width: 100%;
+.containerBarChart {
+  width: 80%;
+  margin-right: 50px;
+}
+.containerButtonList {
+  width: 20%;
+  min-width: 220px;
   display: flex;
   justify-content: center;
-  align-items: center;
+}
+.containerChart {
+  width: 100%;
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: rgb(220, 248, 246);
@@ -45,16 +58,124 @@
   font-family: "Arial", sans-serif;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-.containerBarChart {
-  width: 80%;
-  margin-right: 50px;
-}
 .containerButtonList {
-  width: 20%;
+  width: 100%;
   display: flex;
+  margin-top: 20px;
   justify-content: center;
 }
+.containerBarChart {
+  width: 100%;
+  margin-right: 50px;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+
+  overflow-y: auto;
+}
 .cardContain {
-  margin-left: 20px !important;
   width: 100% !important;
+}
+.dialogContainer {
+  width: 100vw;
+  height: 100vh;
+
+  background-color: #26292e;
+}
+.dialogLight {
+  background-color: #26292e;
+  color: #2e2f30;
+  font-family: sans-serif;
+  margin: 0 10px;
+}
+
+.dialog {
+  float: right;
+  text-align: left;
+  width: 60%;
+  margin: 5% auto 0;
+}
+
+.textDialog {
+  font-size: 3.5em;
+  color: #fff;
+  line-height: 1em;
+}
+
+.secondTextDialog {
+  font-size: 1.9em;
+  color: #fff;
+  padding-right: 5%;
+}
+.imageLight {
+  max-height: 100%;
+  object-fit: contain !important;
+  position: absolute !important;
+  float: left !important;
+  top: 0 !important;
+  width: 60% !important;
+}
+
+@media (min-width: 768px) {
+  .containerChart {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: rgb(220, 248, 246);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    font-family: "Arial", sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .containerButtonList {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+  }
+  .containerBarChart {
+    width: 80%;
+    margin-right: 50px;
+  }
+  .cardContain {
+    width: 100% !important;
+  }
+  .container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  .cardContain {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .imageLight {
+    width: 100% !important;
+    top: -50px !important;
+  }
+  .dialog {
+    padding: 0 5px;
+    text-align: center;
+    width: 100%;
+    margin-top: 70%;
+  }
+  .textDialog {
+    font-size: 3m;
+  }
+
+  .secondTextDialog {
+    font-size: 1.4em;
+  }
 }

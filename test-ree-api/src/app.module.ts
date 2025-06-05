@@ -9,9 +9,12 @@ import { ScheduleModule } from '@nestjs/schedule';
   imports: [
     ReeModule,
     ScheduleModule.forRoot(),
-    MongooseModule.forRoot('mongodb://localhost/reeTest'),
+    MongooseModule.forRoot(
+      process.env.MONGO_URI || 'mongodb://localhost/reeTest',
+    ),
   ],
   controllers: [AppController],
   providers: [AppService],
 })
+
 export class AppModule {}

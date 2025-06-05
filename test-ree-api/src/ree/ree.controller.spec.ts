@@ -1,6 +1,8 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { ReeController } from './ree.controller';
 import { ReeService } from './ree.service';
+import { mockcreateReeInputDTO, mockSample } from './mocks/ree.mock';
+import { IRee } from './interfaces/ree.interface';
 
 describe('ReeController', () => {
   let controller: ReeController;
@@ -41,5 +43,13 @@ describe('ReeController', () => {
       message: 'success',
       data: mockReeData,
     });
+  });
+
+  it('should execute the create method when the cron job is triggered', async () => {
+    jest.spyOn(service, 'create').mockResolvedValue(mockSample[0] as IRee);
+
+    await controller.create(mockcreateReeInputDTO);
+
+    expect(service.create).toHaveBeenCalledWith(mockcreateReeInputDTO);
   });
 });

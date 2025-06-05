@@ -45,7 +45,6 @@ export class ReeService {
 
       return await newRee.save();
     } catch (error) {
-      console.error('Error creating Ree:', error);
       throw error;
     }
   }

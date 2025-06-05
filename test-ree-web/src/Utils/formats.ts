@@ -49,8 +49,8 @@ export function dropdownFormat<T>(data: T[], label: string, value: string): { ke
   const formatData = map(data, (item, index) => {
     return {
       key: index + 1,
-      text: String(get(item, label, "")), // Coerce to string
-      value: String(get(item, value, "")), // Coerce to string
+      text: String(get(item, label, "")),
+      value: String(get(item, value, "")),
     };
   });
   return formatData;

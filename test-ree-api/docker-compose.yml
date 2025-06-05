@@ -1,20 +1,36 @@
-app:
-  build:
-    context: .
-    dockerfile: Dockerfile
-  container_name: nestjs-app
-  ports:
-    - '3000:3000'
-  environment:
-    - MONGO_URI=mongodb://mongo:27017/reeTest
-  depends_on:
-    - mongo
-  networks:
-    - app-network
-  entrypoint: >
-    sh -c "
-    until nc -z mongo 27017; do
-      echo 'Waiting for MongoDB...';
-      sleep 2;
-    done;
-    npm run start:prod"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: nestjs-app
+    ports:
+      - '3000:3000'
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/reeTest
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+    entrypoint: >
+      sh -c "
+      until nc -z mongo 27017; do
+        echo 'Waiting for MongoDB...';
+        sleep 2;
+      done;
+      npm run start:prod"
+  mongo:
+    image: mongo:7
+    environment:
+      MONGO_INITDB_DATABASE: reeTest
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:
+
+networks:
+  app-network:
+    driver: bridge

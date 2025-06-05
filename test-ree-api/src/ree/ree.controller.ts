@@ -9,8 +9,8 @@ export class ReeController {
 
   @Cron('0 1 1 * *')
   async create(@Body() createReeInputDTO: CreateReeInputDTO) {
-    const ree = await this.reeService.create(createReeInputDTO);
-    console.log('Ree created:', ree);
+    await this.reeService.create(createReeInputDTO);
+    console.log('Ree data created successfully!');
   }
 
   @Get('/')

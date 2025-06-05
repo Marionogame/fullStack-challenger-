@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+
+// libraries
 import {
   TableRow,
   Input,
@@ -14,19 +16,24 @@ import {
   Menu,
   Table,
   Button,
+  Header,
 } from "semantic-ui-react";
+import { get, isEmpty, isArray } from "lodash";
+
+// Utils
 import { IRee } from "../../../../Interface/ree";
-import { get, isEmpty } from "lodash";
 import { getTimeLabel } from "../../../../Utils/formats";
+
+// Styles
 import styles from "./styles.module.css";
 
 interface TableReeProps {
   data: IRee[] | [];
-  handleBottom: (item: IRee) => void;
+  handleButtom: (item: IRee) => void;
   tableValue: IRee | null;
 }
 
-const TableRee: React.FC<TableReeProps> = ({ data, handleBottom, tableValue }) => {
+const TableRee: React.FC<TableReeProps> = ({ data, handleButtom, tableValue }) => {
   const itemsPerPage = 5;
   const [activePage, setActivePage] = useState<number>(1);
   const [startDate, setStartDate] = useState<string>("");
@@ -47,53 +54,85 @@ const TableRee: React.FC<TableReeProps> = ({ data, handleBottom, tableValue }) =
   };
 
   const startIndex = (activePage - 1) * itemsPerPage;
-  const paginatedData = Array.isArray(filterData) ? filterData.slice(startIndex, startIndex + itemsPerPage) : [];
-  const renderRows = () =>
-    paginatedData.map((item, key) => (
-      <TableRow key={key} className={get(tableValue, "_id", "") === get(item, "_id", null) ? styles.tableRow : styles.tableRowActive}>
-        <TableCell>
-          <div className={styles.contTableButtom}>
-            <Button className={styles.buttom} onClick={() => handleBottom(item)} size="small" color="green">
-              Seleccionar
-            </Button>
-          </div>
-        </TableCell>
-        <TableCell>{get(item, "data.type", "")}</TableCell>
-        <TableCell>{get(item, "data.attributes.description", "")}</TableCell>
-        <TableCell>{getTimeLabel(get(item, "createdAt", null), "YYYY-MM-DD HH:mm:ss")}</TableCell>
-      </TableRow>
-    ));
+  const paginatedData = Array.isArray(filterData) && filterData.slice(startIndex, startIndex + itemsPerPage);
+
+  const renderRows = () => {
+    if (!isEmpty(paginatedData) && isArray(paginatedData)) {
+      return paginatedData.map((item: IRee) => (
+        <TableRow
+          key={item._id}
+          onDoubleClick={() => handleButtom(item)}
+          className={get(tableValue, "_id", "") === get(item, "_id", null) ? styles.tableRow : styles.tableRowActive}>
+          <TableCell>
+            <div className={styles.contTableButtom}>
+              <Button className={styles.buttom} onClick={() => handleButtom(item)} size="small" color="green">
+                Seleccionar
+              </Button>
+            </div>
+          </TableCell>
+          <TableCell>{get(item, "data.type", "")}</TableCell>
+          <TableCell>{get(item, "data.attributes.description", "")}</TableCell>
+          <TableCell>{getTimeLabel(get(item, "createdAt", null), "MMMM Do YYYY")}</TableCell>
+        </TableRow>
+      ));
+    }
+    return (
+      <tr>
+        <td colSpan={4} style={{ textAlign: "center" }}>
+          <Header as="h2" icon>
+            <Icon name="settings" />
+            No Data Found
+          </Header>
+        </td>
+      </tr>
+    );
+  };
 
   const renderPagination = () => (
     <Menu floated="right" pagination>
-      <MenuItem as="a" icon onClick={() => activePage > 1 && setActivePage(activePage - 1)} disabled={activePage === 1}>
+      <MenuItem as="a" aria-label={"page-change-back"} icon onClick={() => activePage > 1 && setActivePage(activePage - 1)} disabled={activePage === 1}>
         <Icon name="chevron left" />
       </MenuItem>
+
       {Array.from({ length: totalPages }, (_, index) => (
-        <MenuItem as="a" name={(index + 1).toString()} active={activePage === index + 1} onClick={handlePageChange} key={index}>
+        <MenuItem
+          as="a"
+          name={(index + 1).toString()}
+          aria-label={`page-change-${(index + 1).toString()}`}
+          active={activePage === index + 1}
+          onClick={handlePageChange}
+          key={index}>
           {index + 1}
         </MenuItem>
       ))}
-      <MenuItem as="a" icon onClick={() => activePage < totalPages && setActivePage(activePage + 1)} disabled={activePage === totalPages}>
+
+      <MenuItem
+        as="a"
+        aria-label={"page-change-next"}
+        icon
+        onClick={() => activePage < totalPages && setActivePage(activePage + 1)}
+        disabled={activePage === totalPages}>
         <Icon name="chevron right" />
       </MenuItem>
     </Menu>
   );
 
-  const filterByDateRange = (dataMain: IRee[]) => {
-    console.log("dataMain", dataMain);
+  // Filter by maximum and minimum date
+  const filterByDateRange = () => {
     let startDataUpd = startDate;
     let endDataUpd = endDate;
-
+    setActivePage(1);
+    if (isEmpty(data) || !isArray(data)) {
+      return false;
+    }
     if (isEmpty(startDate) && isEmpty(endDate)) {
-      setFilterData(dataMain);
-      return;
+      setFilterData(data);
+      return false;
     }
 
-    const filteredData = dataMain.filter((item) => {
+    const filteredData = data.filter((item) => {
       const itemDate = new Date(get(item, "createdAt", ""));
 
-      // Validar si `startDate` y `endDate` están vacíos antes de comparar
       if (!isEmpty(startDate) && itemDate < new Date(startDataUpd)) {
         return false;
       }
@@ -115,20 +154,23 @@ const TableRee: React.FC<TableReeProps> = ({ data, handleBottom, tableValue }) =
             <FormField inline>
               <Input
                 label="Fecha inicio"
+                aria-label={"start-date"}
                 type="date"
-                onChange={(e, { value }) => {
+                onChange={(_e, { value }) => {
                   setStartDate(value);
                 }}
               />
               <Input
                 label="Fecha final"
+                aria-label={"end-date"}
                 type="date"
-                onChange={(e, { value }) => {
+                onChange={(_e, { value }) => {
                   setEndDate(value);
                 }}
                 className={styles.inputSearch}
               />
-              <Button icon="filter" color="blue" onClick={() => filterByDateRange(data)} className={styles.buttonIcon} />{" "}
+
+              <Button icon="filter" aria-label={"filterTable"} color="blue" onClick={() => filterByDateRange()} className={styles.buttonIcon} />
             </FormField>
           </Form>
         </div>
@@ -142,6 +184,7 @@ const TableRee: React.FC<TableReeProps> = ({ data, handleBottom, tableValue }) =
             <TableHeaderCell>Fecha</TableHeaderCell>
           </TableRow>
         </TableHeader>
+
         <TableBody>{renderRows()}</TableBody>
         <TableFooter>
           <TableRow>

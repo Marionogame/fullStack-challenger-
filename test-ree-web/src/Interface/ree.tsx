@@ -65,9 +65,15 @@ export interface IAttributes {
 }
 export interface IAttributesChart {
   color: string[];
-  total: number[];
-  type: string[];
+  value: number[];
+  label: string[];
 }
+export interface IAttributesChartPie {
+  color: string;
+  value: number;
+  label: string;
+}
+
 export interface IRee {
   data: IData;
   included: IIncluded[];

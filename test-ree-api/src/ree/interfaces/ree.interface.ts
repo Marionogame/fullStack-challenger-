@@ -1,4 +1,4 @@
-import { Schema, Document } from 'mongoose';
+import { Document } from 'mongoose';
 
 interface IValue {
   value: number;
@@ -59,28 +59,3 @@ export interface IRee extends Document {
   createdAt: Date;
   updatedAt: Date;
 }
-
-const ValueSchema = new Schema<IValue>({
-  value: { type: Number, required: true },
-  percentage: { type: Number, required: true },
-  datetime: { type: Date, required: true },
-});
-
-const ContentItemSchema = new Schema<IContentItem>({
-  type: { type: String, required: true },
-  id: { type: String, required: true },
-  groupId: { type: String, required: true },
-  attributes: {
-    title: { type: String, required: true },
-    description: { type: String, default: null },
-    color: { type: String, default: null },
-    icon: { type: String, default: null },
-    type: { type: String, required: true },
-    magnitude: { type: String, default: null },
-    composite: { type: Boolean, required: true },
-    lastUpdate: { type: Date, required: true },
-    values: { type: [ValueSchema], required: true },
-    total: { type: Number, required: true },
-    totalPercentage: { type: Number, required: true },
-  },
-});
