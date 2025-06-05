@@ -17,6 +17,20 @@ Se puede ajustar fácilmente la frecuencia del API del projecto a la frecuencia 
 -------------------------
 
 
+Ejecución:
+
+Correr API: pnpm nest start
+
+Correr Testing: pnpm jest --coverage
+
+Testing Covertura 100%:
+![image](https://github.com/user-attachments/assets/37478049-6ea4-4d57-8b2a-42ff32abe3c3)
+
+
+
+-------------------------
+
+
 Opciones tambien Aceptables:
 (Cada opción dependería de las circunstancias específicas, considerando tanto la capacidad de la compañía como la disponibilidad y funcionalidad del API REST de REE.)
 
@@ -28,20 +42,6 @@ Esto implicaría analizar patrones de actualización y configurar validaciones r
 Este enfoque, aunque complejo, puede ser útil en escenarios donde la precisión en tiempo real es crítica y la frecuencia de actualización del API es predecible.
 
 C - Usar el API REST de REE directamente como servicio garantiza que el proyecto siempre tenga datos actualizados sin necesidad de almacenamiento local, lo que simplifica la arquitectura y ahorra esfuerzo de mantenimiento. Sin embargo, es importante considerar que no tendríamos control sobre la libertad de acceso a los datos ni sobre la velocidad de respuesta, y además, si el API REST de REE no está diseñado para soportar un gran número de usuarios concurrentes, esto podría generar problemas de rendimiento o incluso caídas del servicio.
-
--------------------------
-
-
-Ejecución:
-
-Correr API: pnpm nest start
-
-Correr Testing: pnpm jest --coverage
-
-Testing Covertura 100%:
-![image](https://github.com/user-attachments/assets/37478049-6ea4-4d57-8b2a-42ff32abe3c3)
-
-
 --------------------------
 
 Frontend
