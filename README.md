@@ -3,7 +3,7 @@ Obtención de balance REE (Red Eléctrica de España)
 
 -------------------------
 Backend
-
+-------------------------
 Estructura Backend del projecto:
 (Esta deciciones fueron tomadas en mi juicio y para completar todos los requerimientos del documento que se me entrego)
 
@@ -11,10 +11,10 @@ Cada cierto tiempo, el proyecto realiza una petición GET automática a la API R
 asi la aplicacion no depende de datos externo y puede manipular, transformar o extender los datos para su continuo funcionamiento y asegura que la información
 presentada sea precisa, confiable y en tiempo real.
 
-Se puede ajustar fácilmente la frecuencia del API del projecto a la frecuencia API REST de REE (Red Eléctrica de España) para mantener la informacion actualizada
+Se puede ajustar fácilmente la frecuencia del API del projecto a la frecuencia API REST de REE (Red Eléctrica de España) para mantener la informacion actualizada.
 
 
-
+-------------------------
 
 
 Opciones tambien Aceptables:
@@ -29,7 +29,7 @@ Este enfoque, aunque complejo, puede ser útil en escenarios donde la precisión
 
 C - Usar el API REST de REE directamente como servicio garantiza que el proyecto siempre tenga datos actualizados sin necesidad de almacenamiento local, lo que simplifica la arquitectura y ahorra esfuerzo de mantenimiento. Sin embargo, es importante considerar que no tendríamos control sobre la libertad de acceso a los datos ni sobre la velocidad de respuesta, y además, si el API REST de REE no está diseñado para soportar un gran número de usuarios concurrentes, esto podría generar problemas de rendimiento o incluso caídas del servicio.
 
-
+-------------------------
 
 
 Ejecución:
@@ -45,7 +45,7 @@ Testing Covertura 100%:
 --------------------------
 
 Frontend
-
+-------------------------
 Estructura Front-End del projecto:
 
 En la interfaz cuenta con varios componentes, incluyendo una tabla que muestra todos los datos necesarios ordenados por tiempo, con un filtro para seleccionar la fecha deseada, 
