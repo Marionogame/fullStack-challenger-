@@ -80,6 +80,6 @@ Pantalla Error:
 Pantalla Cargando:
 ![image](https://github.com/user-attachments/assets/6254dbbb-c0ff-43ab-a657-843fda7b33ef)
 
-
+Pantalla Funcionamiento:
 ![animiertes-gif-von-online-umwandeln-de](https://github.com/user-attachments/assets/453962b2-3db6-4cd6-8eea-40a8fd183561)
 
