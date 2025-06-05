@@ -68,8 +68,13 @@ Testing Covertura 100%:
 
 --------------------------
  
-Pantalla General
+Pantalla General Escritorio:
 ![image](https://github.com/user-attachments/assets/b75998ad-8dc4-45de-ad86-ea8246b5a031)
+
+Pantalla General Movil:
+![image](https://github.com/user-attachments/assets/84c0e368-1f8d-469f-9e5f-6ca68760b62b)
+![image](https://github.com/user-attachments/assets/25a4cbf2-b575-4b9d-a2cc-f45272f2ff46)
+
 
 Pantalla Error:
 ![image](https://github.com/user-attachments/assets/5c09c179-4b69-4b80-9727-19d687e8357b)
