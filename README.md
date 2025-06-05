@@ -1,13 +1,25 @@
-Challenger-FullStack
 Obtención de balance REE (Red Eléctrica de España)
 
-El proyecto funciona de la siguiente manera:
+Estructura Front-End del projecto:
 
-Cada cierto tiempo, el proyecto realiza una petición POST automática a la API REST de REE (Red Eléctrica de España) para mantenerse siempre actualizado.
+En la interfaz cuenta con varios componentes, incluyendo una tabla que muestra todos los datos necesarios ordenados por tiempo, con un filtro para seleccionar la fecha deseada, 
+Además, la aplicación incorpora un gráfico interactivo que visualiza de forma clara y concisa todos los datos, facilitando el análisis y permitiendo a los usuarios tomar
+decisiones informadas basadas en la información presentada, estos son algunos de los componentes.
 
-El frontend realiza una petición al API de nuestro proyecto filtrando por fecha para obtener los datos deseados.
+Se implementaron diversas pantallas atractiva e informativas para orientar al usuario en diferentes escenarios, como errores, estados de carga o la ausencia de datos disponibles.
 
-En el frontend se ofrecen diversas opciones para visualizar los datos mediante texto y gráficos.
+Es importante destacar que la aplicación es completamente responsive. Cada componente ha sido cuidadosamente adaptado o sustituido según sea necesario para garantizar un 
+funcionamiento óptimo tanto en dispositivos móviles como en plataformas de escritorio.
+
+Estructura Front-End del projecto:
+
+Cada cierto tiempo, el proyecto realiza una petición GET automática a la API REST de REE (Red Eléctrica de España) para mantenerse siempre actualizado, 
+asi la aplicacion no depende de datos externo para su continuo funcionamiento y asegura que la información presentada sea precisa, confiable y en tiempo real.
+
+Otras Opciones a tomar encuenta
+
+
+
 -------------------------
 Backend
 Ejecución:
@@ -15,6 +27,7 @@ Ejecución:
 Correr API: pnpm nest start
 
 Correr Testing: pnpm jest --coverage
+
 Testing Covertura 100%:
 ![image](https://github.com/user-attachments/assets/37478049-6ea4-4d57-8b2a-42ff32abe3c3)
 
@@ -26,18 +39,14 @@ Ejecución:
 Correr Web: pnpm run dev
 
 Correr Testing: pnpm vitest run --coverage  
+
 Testing Covertura 100%:
-
-![image](https://github.com/user-attachments/assets/caca6fb6-2a61-4624-a826-1d3cda442220)
-
-Test: pnpm run test
+![image](https://github.com/user-attachments/assets/610a58de-49b0-4c6f-b75c-2fbae87b290c)
 
 
-
- Imagenes 
  
 Pantalla General
-
+![image](https://github.com/user-attachments/assets/b75998ad-8dc4-45de-ad86-ea8246b5a031)
 
 Pantalla Error:
 ![image](https://github.com/user-attachments/assets/5c09c179-4b69-4b80-9727-19d687e8357b)
